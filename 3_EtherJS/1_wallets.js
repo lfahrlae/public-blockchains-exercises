@@ -39,8 +39,8 @@
 // be executed, until you tell the process to stop. 
 
 // This line will tell the process to stop.
-process.exit(0);
-console.log('I am sad line...I will not be printed to console :(');
+// console.log('I am sad line...I will not be printed to console :(');
+// process.exit(0);
 
 // a. Move the sad line above and below `process.exit(0);` to check that the
 // process stops where it is intended to. When you are done, comment out both
@@ -53,7 +53,15 @@ console.log('I am sad line...I will not be printed to console :(');
 
 let exercise = 0;
 
+// Defines the variable exercises
 // Your code here!
+
+function exit () {
+    console.log ("Process stops here, Exercise "+ exercise + "completed"); 
+    process.exit(0);
+    console.log ("I will not be printed to console");
+};
+
 
 // c. Bonus. Did you realize that JavaScript/Node.JS has three different ways
 // of declaring a function?
@@ -70,7 +78,18 @@ let exercise = 0;
 // for all three functions? 
 
 // Your code here!
+const exit2 = function() {
+    console.log("Process stops here" + exercise + "completed");
+    process.exit(0);
+    console.log("I will not be printed to console");
 
+};
+
+const exit3 = () => {
+    console.log('Exercise ' + exercise + ' completed.');
+    process.exit(0);
+    console.log('I will not be printed to console :(');
+};
 
 // Exercise 1. NPM Warm Up.
 ///////////////////////////
@@ -128,14 +147,32 @@ exercise = '3a';
 // Hint: https://javascript.info/ifelse
 
 // Your code here!
+//Important to not forget the require command below!!!
 
-// exit();
+require("dotenv").config();
+console.log(process.env.METAMASK_1_ADDRESS);
+
+let privateKey = process.env.METAMASK_1_PRIAVTE_KEY;
+if (privateKey === "") {
+    console.log("Missing private key, please fix")
+};
+
 
 // b. Create an array with all the names of the variables written in the .env
 // file. Then print the lenght of the array.
 // Hint: https://javascript.info/array
 
 exercise = '3b';
+
+let variablesToCheck = [
+    "INFURA_KEY", "INFURA_GOERLI", "INFURA_MAINNET",
+    "ALCHEMY_KEY", "ALCHEMY_GOERLI", "ALCHEMY_MAINNET",
+    "METAMASK_1_ADDRESS", "METAMASK_1_PRIVATE_KEY",
+    "METAMASK_2_ADDRESS", "METAMASK_2_PRIVATE_KEY",
+    "ETHERSCAN_KEY"
+];
+
+console.log("Num of variables in env.check: ", variablesToCheck.length);
 
 // Your code here!
 
@@ -151,10 +188,20 @@ exercise = '3b';
 
 // Solution 1. forEach.
 variablesToCheck.forEach(v => {
-    // Your code here!
+    if (!process.env[v]) {
+        console.log(process.env[v])
+        console.log(`Missing ${v}, fix your .env file`);
+    }
 });
 
 // Solution 2. For-loop.
+for (let index = 0; index < variablesToCheck.length; index++) {
+    const v = variablesToCheck[index];
+    if (!process.env[v]) {
+        console.log(process.env[v])
+        console.log(`Missing ${v}, fix your .env file`);
+    }
+}
 
 // Your code here!
 
@@ -171,6 +218,14 @@ const ethers = require("ethers");
 // a. Create a random wallet and print the address, the private key,
 // and the mnenomic phrase.
 // Hint: ethers.Wallet.createRandom();
+
+const wallet = ethers.Wallet.createRandom();
+
+console.log();
+console.log("Address:", wallet.address);
+console.log("Private key:", wallet.privateKey);
+console.log("Mnemonic:", wallet.mnemonic.phrase);
+console.log();
 
 
 // exit();

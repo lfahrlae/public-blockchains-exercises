@@ -141,10 +141,10 @@ exercise = '3a';
 // if statement that print a warning message if empty.
 console.log(process.env.METAMASK_ACCOUNT_1);
 
-let privateKey = process.env.METAMASK_PRIVATE_KEY;
+let privateKey = process.env.METAMASK_1_PRIVATE_KEY;
 if (privateKey === "") {
     console.log('Missing private key, fix your .env file');
-}
+};
 
 // exit();
 
@@ -163,7 +163,7 @@ let variablesToCheck = [
 
 console.log('Num of variables in .env to check: ', variablesToCheck.length);
 
-// exit();
+exit();
 
 // c. Loop through all the elements of the array and check that the variable
 // is set and non-empty under `process.env`.
