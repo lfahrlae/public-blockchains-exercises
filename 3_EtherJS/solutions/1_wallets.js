@@ -163,7 +163,7 @@ let variablesToCheck = [
 
 console.log('Num of variables in .env to check: ', variablesToCheck.length);
 
-exit();
+// exit()
 
 // c. Loop through all the elements of the array and check that the variable
 // is set and non-empty under `process.env`.
