@@ -12,7 +12,8 @@
 
 // Hint: As you did in file 1_wallet.
 
-// Your code here!
+require('dotenv').config();
+const ethers = require("ethers");
 
 
 // Exercise 1. Connect to Mainnet (a.k.a welcome async!).
