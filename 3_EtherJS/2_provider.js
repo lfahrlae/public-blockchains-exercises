@@ -124,6 +124,9 @@ const blockNum = async () => {
 
 // Connect to the Goerli test net, get the latest block number and print
 // the difference in chain length with mainnet.
+const goerliInfuraUrl = `${process.env.INFURA_GOERLI}${providerKey}`;
+console.log(goerliInfuraUrl);
+const goerliProvider = new ethers.JsonRpcProvider(goerliInfuraUrl);
 
 
 // Look up the current block number in Mainnet and Goerli.
