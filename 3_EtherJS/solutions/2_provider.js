@@ -195,9 +195,9 @@ const checkBlockTime = async (providerName = "mainnet", blocks2check = 3) => {
     
 };
 
-// checkBlockTime("Mainnet");
+checkBlockTime("Mainnet");
 
-// checkBlockTime("Goerli");
+checkBlockTime("Goerli");
 
 // b. Bonus. The checkBlockTime function can be rewritten more efficiently 
 // using the Observer pattern offer by EtherS JS and listening to the 
