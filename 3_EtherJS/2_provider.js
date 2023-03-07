@@ -115,7 +115,7 @@ const blockNum = async () => {
     console.log('Mainnet block number: ', blockNumber);
 };
 
-blockNum();
+//blockNum();
 
 // b. The Ethereum mainnet is one of the most secure blockchains in the world.
 // The testnets of Ethereum are a bit less secure because they might have 
@@ -128,10 +128,17 @@ blockNum();
 
 // Look up the current block number in Mainnet and Goerli.
 const blockDiff = async () => {
+    let blockNumberM = await mainnetProvider.getBlockNumber();
+    console.log('Mainnet block number: ', blockNumberM);
 
-};
+    let blockNumberG = await goerliProvider.getBlockNumber();
+    console.log('Goerli block number: ', blockNumberG);
 
-// blockDiff();
+    console.log('Mainnet is ' + (blockNumberM - blockNumberG) +
+                ' blocks ahead');
+}
+
+blockDiff();
 
 
 // Exercise 3. Block time.
