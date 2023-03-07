@@ -92,7 +92,11 @@ const network = async () => {
 // b2. Bonus. Re-write the code above using the promise standard notation.
 
 // Promises.
-
+//mainnetProvider.getNetwork().then(net => {
+//     console.log('Promise!');
+//     console.log('Provider\'s network name: ', net.name);
+//     console.log('Provider\'s network chain id: ', Number(net.chainId));
+// });
 // Checkpoint. We use `return` to terminate the execution insted
 // of process.exit(). Why?
 // return;
@@ -107,12 +111,11 @@ const network = async () => {
 
 // // Look up the current block number
 const blockNum = async () => {
-    
-    // Your code here!
-
+    let blockNumber = await mainnetProvider.getBlockNumber();
+    console.log('Mainnet block number: ', blockNumber);
 };
 
-// blockNum();
+blockNum();
 
 // b. The Ethereum mainnet is one of the most secure blockchains in the world.
 // The testnets of Ethereum are a bit less secure because they might have 
