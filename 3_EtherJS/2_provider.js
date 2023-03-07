@@ -45,10 +45,15 @@ const ethers = require("ethers");
 
 // Your code here!
 
+const providerKey = process.env.INFURA_KEY;
+
+const mainnetInfuraUrl = `${process.env.INFURA_MAINNET}${providerKey}`;
+console.log(mainnetInfuraUrl);
+const mainnetProvider = new ethers.JsonRpcProvider(mainnetInfuraUrl);
 
 // b. Verify that the network's name is "mainnet" and the chain id that theis 1.
 
-// Hint: `getNetwork()`.
+// Hint: `getNetwork()`;
 
 // Hint2: the value of chain id returned by Ethers JS is of type "BigInt". 
 // As the name suggests, that is a very a data type capable of holding very
@@ -61,16 +66,20 @@ const ethers = require("ethers");
 // This is an asynchronous anonymous self-executing function. It is a ugly
 // construct, but it allows you to use await inside its body.
 (async () => {
-    
-    // Your code maybe here!
+let net = await mainnetProvider.getNetwork();
+console.log('Async/Await!');
+console.log('Provider\'s network name: ', net.name);
+   console.log('Provider\'s network chain id: ', Number(net.chainId));
+ })();
 
-})();
 
 // However, the async function could also be named, and the result is:
 const network = async () => {
+    let net = await mainnetProvider.getNetwork();
+    console.log('Async/Await!');
+    console.log('Provider\'s network name: ', net.name);
+    console.log('Provider\'s network chain id: ', Number(net.chainId));
     
-    // Your code here!
-
 };
 
 // which you can then call:
