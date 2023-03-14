@@ -47,8 +47,7 @@ console.log(typeof null);
 // Let's pick Brendan Eich, the creator of JavaScript. The guy who
 // decided that the type of null is 'object'.
 // Hint. The property name must contain the full name (Brendan Eich), and
-// the property birth must contain the year in which he was born (1961).
-
+// // the property birth must contain the year in which he was born (1961).
 // b. Access the properties of the person object.
 
 
