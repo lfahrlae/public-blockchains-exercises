@@ -92,25 +92,25 @@ console.log(typeof undefined);
 // of the city of Luzern as reported by Wikipedia Eng. as of 03.06.2020.
 
 // a. Compute (18 + 107) / (5 * 25)
-
+let a= (18+107)/(5*25)
 console.log(a);
 
 // b. Compute the square root of one million.
-
+b = Math.sqrt(1000000);
 console.log(b);
 
 // c. Take the remainder of the division betwen 123 and 9 squared, minus 1.
-
+c = (123 % Math.pow(9,2)) -1 
 console.log(c);
 
 // d. Take the integer part of the float number 2.123456789 (need to use Math).
-
+d = Math.floor(2.123456789);
 console.log(d);
 
 // Now compute:
 console.log(a*b*c*d);
 
-// EXERCISE 2. Variable Naming.
+// EXERCISE 2. Variable Naming
 ///////////////////////////////
 
 // Assign the value of the previous computation to variable with a proper name.
@@ -132,8 +132,8 @@ console.log(a*b*c*d);
 // and with a upper case for the first letter of every next word. So:
 // luzernPopulation
 // is probably a good candidate. But the final choice is yours!
-luzernPopulation = a*b*c*d;
-console.log(luzernPopulation);
+luzernpopulation = a*b*c*d;
+console.log(luzernpopulation);
 
 // EXERCISE 3. Random numbers.
 //////////////////////////////
@@ -141,11 +141,13 @@ console.log(luzernPopulation);
 // a. Generate a random number between 0 and 1, and store its value
 // in a variable (and pick a proper name for the variable!).
 // Hint. The Math object is your friend.
-
+randomnumber = Math.random();
+console.log(randomnumber);
 
 // b. Update the variable so that the value of the random number is
 // between 0 and the one hundred thoudands.
-
+randomnumberb = 100000*Math.random();
+console.log(randomnumberb);
 
 // EXERCISE 4. Conditionals.
 ////////////////////////////
@@ -157,6 +159,15 @@ console.log(luzernPopulation);
 // Luzern print "Go Luzern!", if exactly equal print "Are we in the Matrix?",
 // otherwise print "Few but good!"
 // Hint: Use console.log to print.
+if (luzernpopulation > randomnumber) {
+    console.log("Go Luzern");
+}
+else if (luzernpopulation === randomnumber){
+    console.log("Are we in the Matrix?");
+}
+else {
+    console.log("Few but good");
+}
 
 
 // EXERCISE 5. String manipulation.
@@ -166,10 +177,12 @@ console.log(luzernPopulation);
 // named finalStr.
 str1 = "Always remember that you are absolutely unique.";
 str2 = 'Just like everyone else.';
+finalStr = str1 + "" + str2;
 
 
 // b. Did you remember to add a space between them?
 // If so, how many characters is the final string?
+let length = str2.length;
 
 
 // c. Did you know that you can also join strings and numbers together?
@@ -178,6 +191,8 @@ str2 = 'Just like everyone else.';
 // "Just like other X persons in Luzern." (X to be replaced with the count)
 // Then, join it with str1 and update finalStr.
 // Important. String must end with a dot (needed for exercise below).
+str2 = "Just like other" + " " + luzernpopulation + " " + "persons in Luzern";
+finalStr = str1 +"" + str2;
 
 
 // d. Alternatively, you can specify strings using the backtick sign `
@@ -188,7 +203,7 @@ str2 = 'Just like everyone else.';
 // in the finalStr variable. Extract a substring which contains only
 // the first part.
 // Hint: Use substring and the length property.
-
+finalStr = finalStr.substring(0,str1.length);
 
 // f. Now shout it loud and make the it upper case.
 // Hint: Use toUpperCase.
